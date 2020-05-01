@@ -14,7 +14,7 @@ if [ $PLATFORM == x86_64 ] || [ "$1" == "glibc_only" ]; then
     if [ "$1" == "glibc_only" ]; then
         exit 0
     fi
-    docker build --rm -t quay.io/pypa/manylinux2010_centos-6-no-vsyscall --cache-from quay.io/pypa/manylinux2010_centos-6-no-vsyscall:latest --cache-from centos-with-vsyscall32:latest --cache-from centos-with-vsyscall64:latest -f docker/glibc/Dockerfile docker/glibc/
+    docker build --rm -t mephi42/manylinux2010_centos-6-no-vsyscall --cache-from mephi42/manylinux2010_centos-6-no-vsyscall:latest --cache-from centos-with-vsyscall32:latest --cache-from centos-with-vsyscall64:latest -f docker/glibc/Dockerfile docker/glibc/
 fi
 
-docker build --rm -t quay.io/pypa/manylinux2010_$PLATFORM:$TRAVIS_COMMIT -f docker/Dockerfile-$PLATFORM docker/
+docker build --rm -t mephi42/manylinux2010_$PLATFORM:$TRAVIS_COMMIT -f docker/Dockerfile-$PLATFORM docker/
